@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi Calculator & Converter</title>
+    <link rel="stylesheet" href="multi_calculator.css">
+</head>
+<body>
+    <h1>Multi Calculator & Converter</h1>
+    <nav>
+        <button onclick="showTab('math')">Basic Mathematics</button>
+        <button onclick="showTab('number')">Number System Converter</button>
+        <button onclick="showTab('metric')">Metric Conversion</button>
+    </nav>
+    <section id="math" class="tab">
+        <h2>🧮 Basic Mathematics</h2>
+        <label><input type="radio" name="mathMode" value="eval" checked> Evaluation</label>
+        <label><input type="radio" name="mathMode" value="conv"> Conversion</label>
+        <div id="mathEval">
+            <div>
+                <label for="evalType">Expression Type:</label>
+                <select id="evalType">
+                    <option value="infix">Infix</option>
+                    <option value="postfix">Postfix</option>
+                    <option value="prefix">Prefix</option>
+                </select>
+            </div>
+            <div>
+                <label for="mathExpr">Expression:</label>
+                <input type="text" id="mathExpr" placeholder="e.g., (12+3)*5 or 12 3 + 5 * or * + 12 3 5">
+            </div>
+            <button onclick="evaluateMath()">Evaluate</button>
+            <div id="mathResult"></div>
+        </div>
+        <div id="mathConv" style="display:none;">
+            <div>
+                <label for="convFrom">Convert FROM:</label>
+                <select id="convFrom">
+                    <option value="infix">Infix</option>
+                    <option value="postfix">Postfix</option>
+                    <option value="prefix">Prefix</option>
+                </select>
+                <label for="convTo">TO:</label>
+                <select id="convTo">
+                    <option value="infix">Infix</option>
+                    <option value="postfix">Postfix</option>
+                    <option value="prefix">Prefix</option>
+                </select>
+            </div>
+            <div>
+                <label for="convExpr">Expression:</label>
+                <input type="text" id="convExpr" placeholder="e.g., (12+3)*5">
+            </div>
+            <button onclick="convertMath()">Convert</button>
+            <div id="convResult"></div>
+        </div>
+    </section>
+    <section id="number" class="tab" style="display:none;">
+        <h2>🔢 Number System Converter</h2>
+        <div>
+            <label for="numFrom">Input type:</label>
+            <select id="numFrom">
+                <option value="decimal">Decimal</option>
+                <option value="binary">Binary</option>
+                <option value="octal">Octal</option>
+                <option value="hex">Hexadecimal</option>
+            </select>
+            <input type="text" id="numInput" placeholder="Enter number">
+        </div>
+        <div>
+            <label for="numTo">Output type:</label>
+            <select id="numTo">
+                <option value="decimal">Decimal</option>
+                <option value="binary">Binary</option>
+                <option value="octal">Octal</option>
+                <option value="hex">Hexadecimal</option>
+                <option value="bcd">BCD</option>
+                <option value="8421">8421</option>
+                <option value="2421">2421</option>
+            </select>
+            <button onclick="convertNumberSystem()">Convert</button>
+        </div>
+        <div id="numResult"></div>
+    </section>
+    <section id="metric" class="tab" style="display:none;">
+        <h2>📏 Metric Conversion</h2>
+        <label for="metricType">Conversion Type:</label>
+        <select id="metricType" onchange="renderMetricForm()">
+            <option value="currency">Currency</option>
+            <option value="length">Length</option>
+            <option value="area">Area</option>
+            <option value="volume">Volume</option>
+            <option value="weight">Weight</option>
+            <option value="temperature">Temperature</option>
+            <option value="speed">Speed</option>
+            <option value="pressure">Pressure</option>
+            <option value="power">Power</option>
+            <option value="cost">Cost Calculator</option>
+        </select>
+        <div id="metricForm"></div>
+        <div id="metricResult"></div>
+    </section>
+    <script src="multi_calculator.js"></script>
+</body>
+</html>
